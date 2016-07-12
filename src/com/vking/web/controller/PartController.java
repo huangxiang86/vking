@@ -41,7 +41,6 @@ public class PartController {
 
 	@RequestMapping(value = "/myservlet", method = RequestMethod.GET)
 	public String displayMyservelt(RedirectAttributes model) {
-		model.addFlashAttribute("servletName", "myServlet");
 		return "redirect:/custom";
 	}
 
