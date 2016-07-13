@@ -21,9 +21,6 @@ public class PartController {
 	public String createPart(
 			@RequestParam(value="value",defaultValue="Hello World") String value,
 			@RequestParam(value="number",defaultValue="123123") String number) {
-		System.out.println("value:" + value);
-		System.out.print("number:" + number);
-		
 		return "test/part/create";
 	}
 
