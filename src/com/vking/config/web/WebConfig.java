@@ -8,6 +8,7 @@ import org.springframework.web.multipart.support.StandardServletMultipartResolve
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -36,5 +37,18 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	public MultipartResolver multipartResolver() {
 		return new StandardServletMultipartResolver();
 	}
+	
+	
+	//This Code Was User To ADD ResourceHandlers To DispatchServlet
+	
+	// Equal To : <mvc:resources mapping="/js/**" location="/WEB-INF/js/"/>
+	@Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/css/**").addResourceLocations("/css/");
+        registry.addResourceHandler("/extjs/**").addResourceLocations("/WEB-INF/extjs/");
+        registry.addResourceHandler("/js/**").addResourceLocations("/WEB-INF/js/");
+    }
+	
+	
 
 }
